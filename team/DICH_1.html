@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="能运行就是好代码。">
+<meta name="role" content="项目委员会">
+<title>DICH_1</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Courier New', Consolas, monospace;
+    background: #0a0a0f;
+    color: #e0e6ed;
+    min-height: 100vh;
+    padding: 80px 20px 40px;
+    background-image:
+      linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .profile-card {
+    position: relative;
+    background: rgba(10, 15, 25, 0.9);
+    border: 1px solid rgba(212, 168, 67, 0.3);
+    border-radius: 4px;
+    padding: 50px 60px;
+    box-shadow: 0 0 40px rgba(212, 168, 67, 0.08);
+  }
+  .corner { position: absolute; width: 20px; height: 20px; border: 2px solid #d4a843; }
+  .tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+  .tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+  .bl { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+  .br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+
+  .member-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border: 1px solid #d4a843;
+    color: #d4a843;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+    text-shadow: 0 0 8px rgba(212, 168, 67, 0.4);
+  }
+  h1 {
+    font-size: 3rem;
+    color: #00f0ff;
+    letter-spacing: 4px;
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+    margin-bottom: 10px;
+  }
+  .role {
+    font-size: 1.1rem;
+    color: #d4a843;
+    letter-spacing: 2px;
+    margin-bottom: 36px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed rgba(212, 168, 67, 0.2);
+  }
+  .section-title {
+    color: #00f0ff;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    margin: 28px 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::before {
+    content: "▸";
+    color: #d4a843;
+  }
+  .desc {
+    line-height: 1.9;
+    color: #b8c0cc;
+    font-size: 0.92rem;
+    letter-spacing: 0.5px;
+  }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .stat-item {
+    background: rgba(0, 240, 255, 0.03);
+    border: 1px solid rgba(0, 240, 255, 0.15);
+    padding: 16px;
+    text-align: center;
+    border-radius: 2px;
+  }
+  .stat-value {
+    font-size: 1.5rem;
+    color: #00f0ff;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    color: #7a8599;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(212, 168, 67, 0.3), transparent);
+    margin: 30px 0;
+  }
+  .hidden-poem {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1px;
+    color: #0a0a0f;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    user-select: text;
+    cursor: text;
+  }
+</style>
+</head>
+<body>
+<!-- MECH ERA :: BACK TO HOME :: AUTO-INJECTED -->
+<a id="back-to-home" href="../index.html" style="
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+    display: inline-block;
+    padding: 10px 18px;
+    background: rgba(10, 10, 15, 0.9);
+    border: 1px solid #00f0ff;
+    border-radius: 2px;
+    color: #00f0ff;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.3), inset 0 0 10px rgba(0, 240, 255, 0.05);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+" onmouseover="this.style.background='rgba(0, 240, 255, 0.1)'; this.style.boxShadow='0 0 20px rgba(0, 240, 255, 0.6), inset 0 0 15px rgba(0, 240, 255, 0.1)';" onmouseout="this.style.background='rgba(10, 10, 15, 0.9)'; this.style.boxShadow='0 0 12px rgba(0, 240, 255, 0.3), inset 0 0 10px rgba(0, 240, 255, 0.05)';">
+    ⍟ 返回指挥中心
+</a>
+
+<div class="container">
+  <div class="profile-card">
+    <div class="corner tl"></div>
+    <div class="corner tr"></div>
+    <div class="corner bl"></div>
+    <div class="corner br"></div>
+
+    <div class="member-badge">PROJECT COUNCIL</div>
+    <h1>DICH_1</h1>
+    <div class="role">项目委员会</div>
+
+    <div class="section-title">个人简介</div>
+    <div class="desc">
+      能运行就是好代码。
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-item">
+        <div class="stat-value" data-auto="years" data-start="2022-07-12">4</div>
+        <div class="stat-label">从业年限</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" data-auto="project-count">2</div>
+        <div class="stat-label">主导项目</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">A+</div>
+        <div class="stat-label">综合评级</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">擅长方向</div>
+    <div class="desc">
+      ▸ 基础网络设施管理<br>
+      ▸ 人员招募管理<br>
+      ▸ 代码编写指挥
+    </div>
+
+    <div class="hidden-poem">
+      安全为心，错为其密；<br>
+      续此灵根，动天乃显；
+    </div>
+  </div>
+</div>
+</body>
+</html>
